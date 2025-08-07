@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesona Tuban</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-8 py-4 bg-transparent text-white">
+    <img src="assets/img/12.png" alt="Logo" class="h-20">
+    <nav class="space-x-6 text-lg font-medium">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="budaya.html" class="hover:underline">Budaya</a>
+      <a href="wisata.html" class="hover:underline">Wisata</a>
+      <a href="kuliner.html" class="hover:underline">Kuliner</a>
+    </nav>
+  </header>
+
+ <!-- Hero Section -->
+<section class="relative h-screen bg-blue-700 bg-center" style="background-image: url('assets/img/masjidtuban.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-start text-left px-8 md:px-20">
+      <h1 class="text-4xl md:text-6xl font-bold text-white">Jelajahi Pesona <br />Wisata Kabupaten Tuban</h1>
+      <p class="mt-4 text-lg md:text-xl text-white max-w-2xl">Telusuri kebudayaan, destinasi wisata, kuliner dan ciri khas dari setiap kecamatan di Kabupaten Tuban</p>
+        <!-- Input Search -->
+        <input type="text" placeholder="Cari sesuatu..." class="mt-6 w-full max-w-md px-4 py-2 text-lg text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+        <!-- Button -->
+        <button class="mt-6 bg-blue-700 hover:bg-blue-800 text-white px-6 py-2 rounded-md text-lg">Cari</button>
+      </div>
+  </section>
+
+
+    
+  <!-- Peta Kecamatan -->
+<section class="py-12 bg-gray-50 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Pilih Kecamatan</h2>
+    <img id="petaKecamatan" src="assets/img/Peta_Tuban.jpg" alt="Peta Kecamatan" class="cursor-pointer mx-auto w-3/4 md:w-1/2" />
+  </section>
+  
+  <!-- Popular Destinasi (disembunyikan dulu) -->
+  <section id="popularDestinasi" class="py-12 px-6 bg-white" style="display: none;">
+    <h2 class="text-3xl font-bold text-center text-blue-900 mb-10">Wisata Tambakboyo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  
+      <!-- Air Terjun Gajahan -->
+<div class="bg-white border rounded-lg shadow-md overflow-hidden">
+  <a href="airterjun.html">
+    <img src="assets/img/air.webp" alt="Air Terjun Gajahan" class="h-[250px] w-full object-cover hover:opacity-90 transition duration-300">
+  </a>
+  <div class="p-4">
+    <h3 class="text-xl font-semibold text-blue-900">Air Terjun Gajahan</h3>
+    <p class="text-gray-600">Desa Dikir</p>
+    <div class="mt-4">
+      <span class="inline-block bg-blue-100 text-blue-900 text-lg font-semibold py-1 px-4 rounded-full">Tiket = Rp 8.000</span>
+    </div>
+  </div>
+</div>
+
+  
+      <!-- Pantai Boom -->
+      <div class="bg-white border rounded-lg shadow-md">
+        <img src="assets/img/terate.webp" alt="Pantai Boom" class="rounded-t-lg h-[250px] w-full">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-900">Wisata Alam Terate</h3>
+          <p class="text-gray-600">Desa Dikir</p>
+          <div class="mt-4">
+            <span class="inline-block bg-blue-100 text-blue-900 text-lg font-semibold py-1 px-4 rounded-full">Tiket = Rp 8.000</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Soto Remun -->
+      <div class="bg-white border rounded-lg shadow-md">
+        <img src="assets/img/goa.jfif" alt="Soto Remun" class=" h-[250px] w-full rounded-t-lg">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-900">Goa Belik </h3>
+          <p class="text-gray-600">Desa Belikanget</p>
+          <div class="mt-4">
+            <span class="inline-block bg-blue-100 text-blue-900 text-lg font-semibold py-1 px-4 rounded-full">Tiket = Rp 5.000</span>
+          </div>
+        </div>
+      </div>
+
+  
+  
+    </div>
+  </section>
+  
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("petaKecamatan").addEventListener("click", function () {
+      document.getElementById("popularDestinasi").style.display = "block";
+      window.scrollTo({
+        top: document.getElementById("popularDestinasi").offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+  

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesona Tuban</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-8 py-4 bg-transparent text-white">
+    <img src="assets/img/12.png" alt="Logo" class="h-20">
+    <nav class="space-x-6 text-lg font-medium">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="budaya.html" class="hover:underline">Budaya</a>
+      <a href="wisata.html" class="hover:underline">Wisata</a>
+      <a href="kuliner.html" class="hover:underline">Kuliner</a>
+    </nav>
+  </header> <!-- Hero Section -->
+  <section class="relative h-96 bg-blue-700 bg-center" style="background-image: url('assets/img/masjidtuban.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-start text-left px-8 md:px-20">
+        <h1 class="text-4xl md:text-2xl mt-12 font-bold text-white">Jelajahi Pesona <br />Wisata Kabupaten Tuban</h1>
+        <p class="mt-4 text-lg md:text-xl text-white max-w-2xl">Telusuri kebudayaan, destinasi wisata, kuliner dan ciri khas dari setiap kecamatan di Kabupaten Tuban</p>
+      </div>
+    </section>
+
+   <!-- Section Dua Kolom: Gambar Kiri, Teks Kanan -->
+<section class="relative flex flex-col md:flex-row items-center px-8 md:px-20 py-12 bg-gray-50 overflow-hidden">
+  <!-- Bingkai Bunga Pojok Kanan Atas -->
+  <img src="assets/img/bingkai.webp" alt="Bingkai Bunga" class="absolute top-0 right-0 w-32 h-32 object-contain pointer-events-none z-10" />
+
+  <!-- Gambar Kiri -->
+  <div class="w-full md:w-1/2 mb-8 md:mb-0 relative">
+    <!-- Label Tiket -->
+    <div class="absolute top-4 left-4 bg-blue-600 text-white px-4 py-2 text-sm font-semibold transform -skew-x-12 rounded-md shadow-md">
+      <span class="block transform skew-x-12">Tiket: 5000</span>
+    </div>
+    <img src="assets/img/air.webp" alt="Budaya Tuban" class="rounded-xl shadow-lg w-full h-auto" />
+  </div>
+
+  <!-- Teks Kanan -->
+  <div class="w-full md:w-1/2 md:pl-12">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">Air Terjun Gajahan</h2>
+    <p class="text-lg text-gray-600 mb-4">
+      Air Terjun Gajahan adalah destinasi wisata alam yang terletak di Desa Dikir, Kabupaten Tuban. Air terjun ini menawarkan pesona keindahan alam yang masih alami dan belum banyak dijamah.
+    </p>
+  </div>
+</section>
+
+
+  <!-- Section Dua Kolom: Teks Kiri, Gambar Kanan -->
+<section class="flex flex-col md:flex-row items-center px-8 md:px-20 py-12 bg-white">
+    <!-- Teks Kiri -->
+    <div class="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Berasal dari Desa Dikir Tambakboyo</h2>
+      <p class="text-lg text-gray-600 mb-4">
+        Dikelilingi oleh tebing batu dan pepohonan hijau, Air Terjun Gajahan menjadi tempat ideal untuk bersantai, berfoto, atau menjelajah alam. Perjalanan menuju lokasi pun menambah kesan petualangan tersendiri karena melewati jalan setapak yang memacu adrenalin. Keindahan dan ketenangan tempat ini menjadikannya salah satu surga tersembunyi di wilayah Tuban yang layak untuk dikunjungi.
+      </p>
+    </div>
+  
+    <!-- Gambar Kanan -->
+    <div class="w-full md:w-1/2">
+      <img src="assets/img/air.webp" alt="Air Terjun Gajahan" class="rounded-xl shadow-lg w-full h-auto" />
+    </div>
+  </section>
+
+  <!-- Slider 4 Gambar -->
+<div x-data="{ activeSlide: 0, slides: ['1.jpg', '2.jpg', '3.webp', '4.jpg'] }" class="px-8 md:px-20 py-12 bg-gray-100">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Galeri Air Terjun Gajahan</h2>
+
+  <div class="relative w-[800px] h-96 max-w-4xl mx-auto overflow-hidden rounded-xl shadow-lg">
+    <!-- Gambar -->
+    <template x-for="(slide, index) in slides" :key="index">
+      <div x-show="activeSlide === index" class="transition-all duration-500">
+        <img :src="'assets/img/' + slide" alt="Galeri Gambar" class="w-full h-auto object-cover rounded-xl" />
+      </div>
+    </template>
+
+    <!-- Navigasi -->
+    <div class="absolute inset-0 flex items-center justify-between px-4">
+      <button @click="activeSlide = (activeSlide - 1 + slides.length) % slides.length" class="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-200">
+        &#8592;
+      </button>
+      <button @click="activeSlide = (activeSlide + 1) % slides.length" class="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-200">
+        &#8594;
+      </button>
+    </div>
+  </div>
+
+  <!-- Indikator -->
+  <div class="flex justify-center space-x-2 mt-4">
+    <template x-for="(slide, index) in slides" :key="index">
+      <button
+        @click="activeSlide = index"
+        :class="activeSlide === index ? 'bg-blue-600' : 'bg-gray-300'"
+        class="w-3 h-3 rounded-full transition-colors"
+      ></button>
+    </template>
+  </div>
+</div>
+
+<!-- Tambahkan Alpine.js (jika belum ada) -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Section Gambar Maps Interaktif -->
+<section class="px-8 md:px-20 py-12 bg-gray-50 text-center">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Lokasi Air Terjun Gajahan </h2>
+  <p class="text-sm text-gray-600 mb-6">Klik gambar peta untuk melihat lokasi di Google Maps</p>
+
+  <a href="https://www.google.com/maps/place/Desa+Tambakboyo,+Tuban,+Jawa+Timur" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform transform hover:scale-105">
+    <img src="assets/img/maps.webp" alt="Peta Desa Tambakboyo" class="rounded-xl shadow-lg w-96 max-w-4xl mx-auto" />
+  </a>
+</section>
+
+</body>
+</html>
